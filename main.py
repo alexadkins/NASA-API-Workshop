@@ -10,8 +10,17 @@ October 4, 2025
 
 """
 
-from vars import *
+import os
 from nasa_utils import *
+
+# Set your NASA_API_KEY in your Terminal/Powershell with the following commands
+# You will need to do this every time you start your shell session
+# Look into environments for long-term storage!
+# MacOS/Linux:  export NASA_API_KEY="YOUR_REAL_KEY"
+# Windows:      $env:NASA_API_KEY = "YOUR_REAL_KEY"
+
+NASA_API_KEY = os.getenv("NASA_API_KEY") or "DEMO_KEY" #DEMO_KEY is rate limited
+print(NASA_API_KEY)
 
 def main():
     eonet_response = send_request(
